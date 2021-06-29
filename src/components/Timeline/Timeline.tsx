@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, Stack, VerticalDivider, Link } from "@fluentui/react";
+import { Stack, VerticalDivider } from "@fluentui/react";
 
 import * as data from "./items.json";
 
