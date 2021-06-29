@@ -25,8 +25,9 @@ export const Timeline: React.FC = (props) => {
 
   // found a hook to try and use scroll speed to make lazy load more performant
   // still does not produce desired results
-  const { scrolling } = useScrollData();
-  const itemsShouldRender = !scrolling;
+  // const { scrolling } = useScrollData();
+  // const itemsShouldRender = !scrolling;
+  const itemsShouldRender = true;
 
   return (
     <div className={style.timelineRoot}>
