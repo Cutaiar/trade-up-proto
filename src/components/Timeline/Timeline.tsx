@@ -5,8 +5,8 @@ import * as data from "./items.json";
 
 import * as style from "./Timeline.style";
 import { TimelineItem } from "./TimelineItem";
-import { checkScrollSpeed } from "./utils";
 import { EndEndcap, StartEndcap } from "./Endcaps";
+import { useScrollData } from "scroll-data-hook";
 
 const getImage = (item: string) => {
   return (
@@ -23,19 +23,23 @@ const loadSize = 10;
 export const Timeline: React.FC = (props) => {
   const [numberOfItems, setNumberOfItems] = React.useState(data.items.length);
 
-  // does not work right. itemShouldRender is not accurate
-  // Keep scroll speed in a variable so that we can delay loading canvases until scroll calms down
-  // const [scrollSpeed, setScrollSpeed] = React.useState(0);
-  // React.useEffect(() => {
-  //   window.onscroll = () => {
-  //     setScrollSpeed(checkScrollSpeed());
-  //   };
-  // }, []);
-  // const scrollSpeedLoadingThreshold = 20;
-  // const itemsShouldRender = scrollSpeed < scrollSpeedLoadingThreshold;
+  // found a hook to try and use scroll speed to make lazy load more performant
+  // still does not produce desired results
+  const { scrolling } = useScrollData();
+  const itemsShouldRender = !scrolling;
 
   return (
     <div className={style.timelineRoot}>
+      {/* <h1
+        style={{
+          position: "sticky",
+          left: 200,
+          top: 200,
+          color: itemsShouldRender ? "green" : "red",
+        }}
+      >
+        {itemsShouldRender ? "true" : "false"}
+      </h1> */}
       <Stack
         horizontalAlign="center"
         tokens={{ childrenGap: 0 }}
@@ -45,10 +49,7 @@ export const Timeline: React.FC = (props) => {
         <VerticalDivider styles={style.dividerStyles} />
         {data.items.slice(0, numberOfItems).map((item, i) => (
           <>
-            <TimelineItem
-              index={i}
-              shouldRender={/*itemsShouldRender */ true}
-            />
+            <TimelineItem index={i} shouldRender={itemsShouldRender} />
             <VerticalDivider styles={style.dividerStyles} />
           </>
         ))}
