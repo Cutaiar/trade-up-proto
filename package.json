@@ -1,5 +1,6 @@
 {
   "name": "trade-up-proto",
+  "description": "prototype of the trade up chain web story-toy",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
