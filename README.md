@@ -20,7 +20,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 Currently main branch is deployed to:
 
-[`https://suspicious-allen-8b68cd.netlify.app/`](https://suspicious-allen-8b68cd.netlify.app/)
+[`trade-up.netlify.app`](https://trade-up.netlify.app)
 
 via our [netlify project](https://app.netlify.com/sites/suspicious-allen-8b68cd/deploys/60dabd9db7a1f1595e6c8615).
 
