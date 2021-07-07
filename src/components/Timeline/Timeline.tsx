@@ -6,7 +6,8 @@ import * as data from "./items.json";
 import * as style from "./Timeline.style";
 import { TimelineItem } from "./TimelineItem";
 import { EndEndcap, StartEndcap } from "./Endcaps";
-import { useScrollData } from "scroll-data-hook";
+
+import { StickyFooter } from "../StickyFooter/StickyFooter";
 
 const getImage = (item: string) => {
   return (
@@ -58,6 +59,7 @@ export const Timeline: React.FC = (props) => {
         <VerticalDivider styles={style.dividerStyles} />
         <EndEndcap />
       </Stack>
+      <StickyFooter />
     </div>
   );
 };
