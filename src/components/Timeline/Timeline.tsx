@@ -31,6 +31,7 @@ export const Timeline: React.FC = (props) => {
 
   return (
     <div className={style.timelineRoot}>
+      {/* TODO: extract to debug component */}
       {/* <h1
         style={{
           position: "sticky",
